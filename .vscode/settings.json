@@ -1,6 +1,0 @@
-{
-  "files.associations": {
-    "*.fs": "fsharp",
-    "ostream": "cpp"
-  }
-}
