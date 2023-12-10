@@ -40,6 +40,7 @@ target_include_directories(
     "src"
     "${CMAKE_SOURCE_DIR}/projects/glad/glad/include"
     "${CMAKE_SOURCE_DIR}/projects/glfw/glfw/include"
+    "${CMAKE_SOURCE_DIR}/projects/imgui/imgui"
 )
 
 target_link_libraries(
@@ -47,4 +48,5 @@ target_link_libraries(
   PRIVATE
     "glad"
     "glfw"
+    "imgui"
 )

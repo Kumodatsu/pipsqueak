@@ -9,5 +9,6 @@ project(
 
 add_subdirectory("projects/glad")
 add_subdirectory("projects/glfw")
+add_subdirectory("projects/imgui")
 add_subdirectory("projects/pipsqueak")
 add_subdirectory("projects/playground")

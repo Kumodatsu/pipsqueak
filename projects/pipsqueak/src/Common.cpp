@@ -2,6 +2,8 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
 
 static void APIENTRY log_gl_debug_message(
   GLenum        /*source*/,
@@ -52,11 +54,36 @@ namespace pip {
     glEnable(GL_DEBUG_OUTPUT);
     glDebugMessageCallback(log_gl_debug_message, nullptr);
 
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO();
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    ImGui_ImplOpenGL3_Init();
+    std::cout << "Initialized Dear ImGui." << std::endl;
+
     while (!glfwWindowShouldClose(window)) {
       glClear(GL_COLOR_BUFFER_BIT);
+
+      ImGui_ImplOpenGL3_NewFrame();
+      ImGui_ImplGlfw_NewFrame();
+      ImGui::NewFrame();
+
+      ImGui::ShowDemoWindow();
+
+      ImGui::Render();
+      ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+      ImGui::UpdatePlatformWindows();
+      ImGui::RenderPlatformWindowsDefault();
+
       glfwSwapBuffers(window);
       glfwPollEvents();
     }
+
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+    std::cout << "Terminated Dear ImGui." << std::endl;
 
     glfwDestroyWindow(window);
     std::cout << "Destroyed window." << std::endl;
