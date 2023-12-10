@@ -26,10 +26,25 @@ else()
   target_compile_options(pipsqueak PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
+target_compile_definitions(
+  pipsqueak
+  PRIVATE
+    "GLFW_INCLUDE_NONE"
+)
+
 target_include_directories(
   pipsqueak
   PUBLIC
     "include"
   PRIVATE
     "src"
+    "${CMAKE_SOURCE_DIR}/projects/glad/glad/include"
+    "${CMAKE_SOURCE_DIR}/projects/glfw/glfw/include"
+)
+
+target_link_libraries(
+  pipsqueak
+  PRIVATE
+    "glad"
+    "glfw"
 )
