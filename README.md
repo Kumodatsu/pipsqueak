@@ -44,6 +44,18 @@ or have CMake handle it by running:
 
     cmake --build "./build"
 
+## Testing
+
+Generate the project files with testing enabled and build the project:
+
+    cmake -B "./build" -D ENABLE_TESTS=ON
+    cmake --build "./build"
+
+Move into the build directory and run the tests:
+
+    cd ./build
+    ctest -V -C Debug
+
 
 [git]:       <https://git-scm.com/>
 [cmake]:     <https://cmake.org/>
