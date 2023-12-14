@@ -18,12 +18,7 @@ set_target_properties(
     CXX_STANDARD 20
 )
 
-# Use a high warning level to help preventing some classes of bugs.
-if (MSVC)
-  target_compile_options(playground PRIVATE /W4)
-else()
-  target_compile_options(playground PRIVATE -Wall -Wextra -Wpedantic)
-endif()
+SetWarnings(playground)
 
 target_include_directories(
   playground

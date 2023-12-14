@@ -9,12 +9,7 @@ set_target_properties(
     CXX_STANDARD 20
 )
 
-# Use a high warning level to help preventing some classes of bugs.
-if (MSVC)
-  target_compile_options(testing_test PRIVATE /W4)
-else()
-  target_compile_options(testing_test PRIVATE -Wall -Wextra -Wpedantic)
-endif()
+SetWarnings(testing_test)
 
 target_include_directories(
   testing_test
