@@ -1,3 +1,19 @@
+# Add a target to be included as a test suite, usable with ctest.
+# Requires a TARGET to be specified, as well as lists of SOURCES, INCLUDES, and
+# LINKS.
+# googletest and pipsqueak are automatically added as dependencies so they don't
+# have to be listed explicitly.
+# Example usage:
+# pipsqueak_add_test(
+#   TARGET some_test
+#   SOURCES
+#     "some_test/SomeTest.cpp"
+#   INCLUDES
+#     "path_to_some_library/include"
+#     "some_test"
+#   LINKS
+#     "some_library_target"
+# )
 function(pipsqueak_add_test)
   cmake_parse_arguments(
     ARG
