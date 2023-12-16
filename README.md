@@ -1,5 +1,8 @@
 # Pipsqueak
 
+![License][shield-license]
+![Build status][shield-build-status]
+
 An insignificant engine for insignificant applications.
 
 Pipsqueak is a framework for creating interactive applications, such as games.
@@ -69,3 +72,6 @@ Currently, the exact location depends on your toolchain.
 [git]:       <https://git-scm.com/>
 [cmake]:     <https://cmake.org/>
 [glfw-deps]: <https://www.glfw.org/docs/3.3/compile.html#compile_deps>
+
+[shield-license]: <https://img.shields.io/github/license/Kumodatsu/pipsqueak?style=flat-square>
+[shield-build-status]: <https://img.shields.io/github/actions/workflow/status/Kumodatsu/pipsqueak/build.yml?style=flat-square>
