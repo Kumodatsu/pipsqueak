@@ -18,7 +18,7 @@ set_target_properties(
     CXX_STANDARD 20
 )
 
-SetWarnings(playground)
+pipsqueak_set_warnings(playground)
 
 target_include_directories(
   playground

@@ -1,5 +1,5 @@
 # Use a high warning level to help preventing some classes of bugs.
-function(SetWarnings target)
+function(pipsqueak_set_warnings target)
   if (MSVC)
     target_compile_options(${target} PRIVATE /W4)
     if(FAIL_ON_WARNINGS)

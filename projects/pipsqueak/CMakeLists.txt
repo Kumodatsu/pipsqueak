@@ -19,7 +19,7 @@ set_target_properties(
     CXX_STANDARD 20
 )
 
-SetWarnings(pipsqueak)
+pipsqueak_set_warnings(pipsqueak)
 
 target_compile_definitions(
   pipsqueak

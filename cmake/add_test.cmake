@@ -1,4 +1,4 @@
-function(AddTest)
+function(pipsqueak_add_test)
   cmake_parse_arguments(
     ARG
     ""
@@ -7,10 +7,10 @@ function(AddTest)
     ${ARGN}
   )
   if(NOT ARG_TARGET)
-      message(FATAL_ERROR "AddTest requires the target name to be specified.")
+      message(FATAL_ERROR "pipsqueak_add_test requires the target name to be specified.")
   endif()
   if(NOT ARG_SOURCES)
-      message(FATAL_ERROR "AddTest requires source files to be specified.")
+      message(FATAL_ERROR "pipsqueak_add_test requires source files to be specified.")
   endif()
 
   add_executable(${ARG_TARGET} ${ARG_SOURCES})
@@ -21,7 +21,7 @@ function(AddTest)
       CXX_STANDARD 20
   )
 
-  SetWarnings(${ARG_TARGET})
+  pipsqueak_set_warnings(${ARG_TARGET})
 
   target_include_directories(
     ${ARG_TARGET}
