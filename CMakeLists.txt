@@ -24,6 +24,7 @@ endif()
 
 if(BUILD_TESTS)
   enable_testing()
+  include("cmake/add_test.cmake")
   add_subdirectory("projects/googletest")
   add_subdirectory("tests")
 endif()
