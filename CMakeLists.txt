@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.23.0)
 
-option(ENABLE_TESTS     "Enables building the tests and test framework."    OFF)
+option(BUILD_TESTS      "Enables building the tests and test framework."    OFF)
+option(BUILD_EXAMPLES   "Enables building the example projects."            OFF)
 option(FAIL_ON_WARNINGS "Makes the build fail if any warnings are emitted." OFF)
 
 # Use a high warning level to help preventing some classes of bugs.
@@ -29,9 +30,12 @@ add_subdirectory("projects/glad")
 add_subdirectory("projects/glfw")
 add_subdirectory("projects/imgui")
 add_subdirectory("projects/pipsqueak")
-add_subdirectory("projects/playground")
 
-if(ENABLE_TESTS)
+if(BUILD_EXAMPLES)
+  add_subdirectory("projects/playground")
+endif()
+
+if(BUILD_TESTS)
   enable_testing()
   add_subdirectory("projects/googletest")
   add_subdirectory("tests")

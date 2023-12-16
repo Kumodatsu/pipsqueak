@@ -48,7 +48,7 @@ or have CMake handle it by running:
 
 Generate the project files with testing enabled and build the project:
 
-    cmake -B "./build" -D ENABLE_TESTS=ON
+    cmake -B "./build" -D BUILD_TESTS=ON
     cmake --build "./build"
 
 Move into the build directory and run the tests:
@@ -56,6 +56,15 @@ Move into the build directory and run the tests:
     cd ./build
     ctest -V -C Debug
 
+## Example projects
+
+Generate the project files with examples enabled and build the project:
+
+    cmake -B "./build" -D BUILD_EXAMPLES=ON
+    cmake --build "./build"
+
+To run, find the executables in the `build` folder.
+Currently, the exact location depends on your toolchain.
 
 [git]:       <https://git-scm.com/>
 [cmake]:     <https://cmake.org/>
