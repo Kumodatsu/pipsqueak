@@ -1,0 +1,6 @@
+# IDE files
+.vscode/
+
+# Generated files
+build/
+imgui.ini

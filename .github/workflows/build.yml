@@ -1,0 +1,65 @@
+name:     Build Pipeline
+run-name: Building the software
+on:       [push]
+
+jobs:
+  build-and-test-linux-gcc:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up GCC
+      uses: pkgxdev/setup@v1
+      with:
+        +: gcc@13
+    - name: Set up dependencies
+      run:  |
+        sudo apt update
+        sudo apt install xorg-dev
+    - name: Show tooling versions
+      run:  |
+        cmake --version
+        ctest --version
+        g++ --version
+    - name: Checkout repository
+      uses: actions/checkout@v3.5.3
+      with:
+        submodules: recursive
+    - name: Configure project
+      uses: threeal/cmake-action@v1.3.0
+      with:
+        generator:    Unix Makefiles
+        c-compiler:   gcc
+        cxx-compiler: g++
+        options:      FAIL_ON_WARNINGS=ON BUILD_TESTS=ON BUILD_EXAMPLES=ON
+    - name: Build project
+      run:  cmake --build "./build"
+    - name: Test project
+      run:  |
+        cd ./build
+        ctest -V -C Debug
+  build-and-test-windows-msvc:
+    runs-on: windows-latest
+    steps:
+    - name: Set up MSVC
+      uses: microsoft/setup-msbuild@v1.1
+    - name: Show tooling versions
+      run:  |
+        cmake --version
+        ctest --version
+        msbuild --version
+    - name: Checkout repository
+      uses: actions/checkout@v3.5.3
+      with:
+        submodules: recursive
+    - name: Configure project
+      uses: threeal/cmake-action@v1.3.0
+      with:
+        generator:    Visual Studio 17 2022
+        c-compiler:   msbuild
+        cxx-compiler: msbuild
+        options:      FAIL_ON_WARNINGS=ON BUILD_TESTS=ON BUILD_EXAMPLES=ON
+    - name: Build project
+      run:  cmake --build "./build"
+    - name: Test project
+      run:  |
+        cd ./build
+        ctest -V -C Debug

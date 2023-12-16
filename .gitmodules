@@ -1,0 +1,9 @@
+[submodule "projects/glfw/glfw"]
+	path = projects/glfw/glfw
+	url = https://github.com/glfw/glfw
+[submodule "projects/imgui/imgui"]
+	path = projects/imgui/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "projects/googletest/googletest"]
+	path = projects/googletest/googletest
+	url = https://github.com/google/googletest
