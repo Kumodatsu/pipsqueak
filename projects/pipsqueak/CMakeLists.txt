@@ -15,6 +15,7 @@ add_library(
     "src/renderer/opengl/Window.cpp"
     "src/renderer/stub/Window.cpp"
     "src/BuildInfo.cpp"
+    "src/Time.cpp"
     "src/logging/LogSeverity.cpp"
 )
 
