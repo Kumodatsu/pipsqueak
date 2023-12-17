@@ -20,7 +20,7 @@ static void APIENTRY log_gl_debug_message(
   std::cout << "GL: " << message << std::endl;
 }
 
-namespace pip {
+namespace pipsqueak {
 
   void test() {
     const int glfw_succeeded = glfwInit();
