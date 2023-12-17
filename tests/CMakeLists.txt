@@ -1,8 +1,8 @@
 pipsqueak_add_test(
-  TARGET testing_test
+  TARGET enum_test
   SOURCES
-    "testing_test/TestingTest.cpp"
+    "enum_test/EnumTest.cpp"
   INCLUDES
-    "testing_test"
+    "enum_test"
   LINKS
 )
