@@ -10,6 +10,7 @@ project(
 add_library(
   pipsqueak
   STATIC
+    "src/BuildInfo.cpp"
     "src/Common.cpp"
     "src/logging/LogSeverity.cpp"
 )
