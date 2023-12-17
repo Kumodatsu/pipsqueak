@@ -12,6 +12,7 @@ add_library(
   STATIC
     "src/BuildInfo.cpp"
     "src/Common.cpp"
+    "src/Time.cpp"
     "src/logging/LogSeverity.cpp"
 )
 
