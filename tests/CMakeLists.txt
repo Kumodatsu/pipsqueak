@@ -15,3 +15,12 @@ pipsqueak_add_test(
     "enum_test"
   LINKS
 )
+
+pipsqueak_add_test(
+  TARGET logging_test
+  SOURCES
+    "logging_test/LoggingTest.cpp"
+  INCLUDES
+    "logging_test"
+  LINKS
+)
