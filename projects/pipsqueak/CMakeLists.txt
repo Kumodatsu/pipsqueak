@@ -17,6 +17,8 @@ add_library(
     "src/BuildInfo.cpp"
     "src/Time.cpp"
     "src/logging/LogSeverity.cpp"
+    "src/logging/LogMessage.cpp"
+    "src/logging/Logger.cpp"
 )
 
 set_target_properties(
