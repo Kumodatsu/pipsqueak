@@ -1,6 +1,6 @@
 #include <pipsqueak/Common.hpp>
 
 int main(int, char**) {
-  pip::test();
+  pipsqueak::test();
   return 0;
 }

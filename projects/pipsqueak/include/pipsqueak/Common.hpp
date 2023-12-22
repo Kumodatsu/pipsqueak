@@ -1,6 +1,6 @@
 #pragma once
 
-namespace pip {
+namespace pipsqueak {
 
   void test();
 
