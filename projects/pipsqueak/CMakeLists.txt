@@ -11,6 +11,7 @@ add_library(
   pipsqueak
   STATIC
     "src/Common.cpp"
+    "src/renderer/opengl/Window.cpp"
 )
 
 set_target_properties(
