@@ -10,7 +10,6 @@ project(
 add_library(
   pipsqueak
   STATIC
-    "src/Common.cpp"
     "src/Window.cpp"
     "src/renderer/opengl/Window.cpp"
 )

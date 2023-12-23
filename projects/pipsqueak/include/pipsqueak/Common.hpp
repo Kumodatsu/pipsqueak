@@ -16,6 +16,4 @@ namespace pipsqueak {
   using F32 = float;
   using F64 = double;
 
-  void test();
-
 }
