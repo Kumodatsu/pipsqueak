@@ -45,7 +45,7 @@ namespace pipsqueak {
     Window& operator = (const Window&) = delete;
   };
 
-  std::shared_ptr<Window> create_window(
+  std::unique_ptr<Window> create_window(
     const std::string& title, U16 width, U16 height
   );
 

@@ -3,10 +3,10 @@
 
 namespace pipsqueak {
 
-  std::shared_ptr<Window> create_window(
+  std::unique_ptr<Window> create_window(
     const std::string& title, U16 width, U16 height
   ) {
-    return std::make_shared<opengl::Window>(title, width, height);
+    return std::make_unique<opengl::Window>(title, width, height);
   }
 
 }
