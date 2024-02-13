@@ -9,6 +9,8 @@ namespace pipsqueak {
 
   class Window {
   public:
+    virtual ~Window() {}
+    
     inline const std::string& title() const {
       return m_title;
     }
@@ -35,8 +37,6 @@ namespace pipsqueak {
       , m_width(width)
       , m_height(height)
     {}
-
-    virtual ~Window() {}
     
     Window(Window&& other) = default;
     Window& operator = (Window&& other) = default;
@@ -45,7 +45,7 @@ namespace pipsqueak {
     Window& operator = (const Window&) = delete;
   };
 
-  std::shared_ptr<Window> create_window(
+  std::unique_ptr<Window> create_window(
     const std::string& title, U16 width, U16 height
   );
 

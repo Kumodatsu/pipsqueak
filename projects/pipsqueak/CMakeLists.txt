@@ -10,8 +10,10 @@ project(
 add_library(
   pipsqueak
   STATIC
+    "src/App.cpp"
     "src/Window.cpp"
     "src/renderer/opengl/Window.cpp"
+    "src/renderer/stub/Window.cpp"
 )
 
 set_target_properties(

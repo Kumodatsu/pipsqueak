@@ -1,8 +1,8 @@
 pipsqueak_add_test(
-  TARGET testing_test
+  TARGET app_test
   SOURCES
-    "testing_test/TestingTest.cpp"
+    "app_test/AppTest.cpp"
   INCLUDES
-    "testing_test"
+    "app_test"
   LINKS
 )
