@@ -9,7 +9,7 @@ namespace pipsqueak {
 
   class App {
   public:
-    App();
+    App(std::unique_ptr<Window> window);
     virtual ~App() = default;
 
     void run();

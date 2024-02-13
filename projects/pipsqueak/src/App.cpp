@@ -2,8 +2,8 @@
 
 namespace pipsqueak {
 
-  App::App()
-    : m_window(create_window("Pipsqueak", 640, 480))
+  App::App(std::unique_ptr<Window> window)
+    : m_window(std::move(window))
   {}
 
   void App::run() {

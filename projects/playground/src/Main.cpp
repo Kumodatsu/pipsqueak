@@ -6,6 +6,9 @@ using namespace pipsqueak;
 
 class Playground : public App {
 public:
+  Playground()
+    : App(create_window("Playground", 640, 480))
+  {}
 protected:
   void on_update(std::chrono::duration<F32> delta) override {
     ++m_update_count;
