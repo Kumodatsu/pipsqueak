@@ -7,7 +7,10 @@ using namespace pipsqueak;
 class Playground : public App {
 public:
   Playground()
-    : App(create_window("Playground", 640, 480))
+    : App(
+      create_window("Playground", 640, 480),
+      std::make_unique<Logger>(std::cout, LogSeverity::Verbose)
+    )
   {}
 protected:
   void on_update(std::chrono::duration<F32> delta) override {
@@ -16,7 +19,7 @@ protected:
     static constexpr auto one_second = decltype(m_elapsed)(1.0f);
     if (m_elapsed >= one_second) {
       m_elapsed -= one_second;
-      std::cout << "FPS: " << m_update_count << std::endl;
+      logger().info() << "FPS: " << m_update_count;
       m_update_count = 0;
     }
   }
