@@ -24,3 +24,11 @@ pipsqueak_add_test(
     "logging_test"
   LINKS
 )
+
+pipsqueak_add_test(
+  TARGET math_tests
+  SOURCES
+    "math_tests/TestFunctions.cpp"
+  INCLUDES
+    "math_tests"
+)
