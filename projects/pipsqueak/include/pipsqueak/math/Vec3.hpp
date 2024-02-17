@@ -3,6 +3,8 @@
 #include "pipsqueak/Common.hpp"
 #include "pipsqueak/math/Functions.hpp"
 
+#include <iosfwd>
+
 namespace pipsqueak::math {
 
   struct alignas(4 * sizeof(F32)) Vec3 {
@@ -100,5 +102,7 @@ namespace pipsqueak::math {
       lhs.x * rhs.y - lhs.y * rhs.x,
     };
   }
+
+  std::ostream& operator << (std::ostream& stream, const Vec3& vector);
 
 }

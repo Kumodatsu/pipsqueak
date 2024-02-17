@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include <pipsqueak/math/Vec3.hpp>
 
+#include <sstream>
+
 using namespace pipsqueak;
 using namespace pipsqueak::math;
 
@@ -164,4 +166,11 @@ TEST(TestVec3, vector_division_divides_elements_componentwise) {
   const Vec3 actual = vec_a / vec_b;
   const Vec3 expected(5.0f, -0.2f, 0.2f);
   EXPECT_VEC3_EQ(actual, expected);
+}
+
+TEST(TestVec3, vector_string_representation_is_parenthesized_components) {
+  const Vec3 vec(5.0f, -2.0f, 3.0f);
+  const std::string actual   = (std::stringstream() << vec).str();
+  const std::string expected = "(5, -2, 3)";
+  EXPECT_EQ(actual, expected);
 }
