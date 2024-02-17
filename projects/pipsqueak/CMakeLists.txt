@@ -21,6 +21,7 @@ add_library(
     "src/logging/Logger.cpp"
     "src/math/Vec2.cpp"
     "src/math/Vec3.cpp"
+    "src/math/Vec4.cpp"
 )
 
 set_target_properties(
