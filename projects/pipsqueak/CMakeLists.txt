@@ -19,6 +19,7 @@ add_library(
     "src/logging/LogSeverity.cpp"
     "src/logging/LogMessage.cpp"
     "src/logging/Logger.cpp"
+    "src/math/Vec2.cpp"
 )
 
 set_target_properties(
