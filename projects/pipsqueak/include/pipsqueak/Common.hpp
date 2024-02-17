@@ -1,7 +1,8 @@
 #pragma once
 
-#include <cstdint>
+#include <concepts>
 #include <cstddef>
+#include <cstdint>
 
 namespace pipsqueak {
 
@@ -15,5 +16,18 @@ namespace pipsqueak {
   using U64 = uint64_t;
   using F32 = float;
   using F64 = double;
+
+  using Index = size_t;
+  using Count = size_t;
+  using Size  = size_t;
+
+  template <typename T>
+  concept Integer = std::integral<T>;
+
+  template <typename T>
+  concept Natural = std::unsigned_integral<T>;
+
+  template <typename T>
+  concept Real = std::floating_point<T>;
 
 }
