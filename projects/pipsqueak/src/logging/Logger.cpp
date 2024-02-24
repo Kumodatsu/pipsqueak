@@ -15,6 +15,8 @@ namespace pipsqueak {
   {}
 
   Logger& Logger::log(const LogEntry& entry) {
+    using std::chrono::seconds;
+
     if (entry.info.severity < m_log_severity) {
       return *this;
     }
@@ -23,6 +25,7 @@ namespace pipsqueak {
     static constexpr size_t longest_log_level_name_length = 7;
 
     const auto  local_time  = time::get_current_local_time();
+    const auto  time        = floor<seconds>(local_time.get_sys_time());
     const auto& location    = entry.info.source_location;
     const auto  file_name   = std::filesystem::path(location.file_name())
       .filename()
@@ -31,7 +34,7 @@ namespace pipsqueak {
     std::lock_guard<decltype(m_mutex)> lock(m_mutex);
     m_output_stream
       << "["
-      << std::format("{:%H:%M:%OS}", local_time)
+      << std::format("{:%T}", time)
       << " " << std::left << std::setw(longest_log_level_name_length)
       << entry.info.severity
       << "] "
