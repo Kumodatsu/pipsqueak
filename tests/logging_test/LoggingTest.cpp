@@ -17,18 +17,26 @@ protected:
   {}
 };
 
+static void assert_string_matches_regex(
+  const std::string& string,
+  const std::string& regex
+) {
+  ASSERT_TRUE(std::regex_search(string, std::regex(regex)))
+    << "string: " << string;
+}
+
 TEST_F(
   LoggingTest,
   info_message_has_correct_format
 ) {
   m_logger.info() << "Peekaboo!";
-
+  
   const auto message = m_stream.str();
-
-  ASSERT_TRUE(std::regex_search(
+  
+  assert_string_matches_regex(
     message,
-    std::regex(R"#(^\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Peekaboo!\n$)#")
-  )) << "Message: " << message;
+    R"#(^\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Peekaboo!\n$)#"
+  );
 }
 
 TEST_F(
@@ -49,11 +57,11 @@ TEST_F(
   m_logger.info() << "Peekaboo" << "!";
 
   const auto message = m_stream.str();
-
-  ASSERT_TRUE(std::regex_search(
+  
+  assert_string_matches_regex(
     message,
-    std::regex(R"#(^\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Peekaboo!\n$)#")
-  )) << "Message: " << message;
+    R"#(^\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Peekaboo!\n$)#"
+  );
 }
 
 TEST_F(
@@ -64,10 +72,10 @@ TEST_F(
 
   const auto message = m_stream.str();
 
-  ASSERT_TRUE(std::regex_search(
+  assert_string_matches_regex(
     message,
-    std::regex(R"#(^\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) P33k4800!\n$)#")
-  )) << "Message: " << message;
+    R"#(^\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) P33k4800!\n$)#"
+  );
 }
 
 TEST_F(
@@ -79,13 +87,11 @@ TEST_F(
 
   const auto message = m_stream.str();
 
-  ASSERT_TRUE(std::regex_search(
+  assert_string_matches_regex(
     message,
-    std::regex(
-      "^"
-      R"#(\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Peekaboo!\n)#"
-      R"#(\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Oobakeep!\n)#"
-      "$"
-    )
-  )) << "Message: " << message;
+    "^"
+    R"#(\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Peekaboo!\n)#"
+    R"#(\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Oobakeep!\n)#"
+    "$"
+  );
 }
