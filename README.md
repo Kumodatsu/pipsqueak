@@ -54,10 +54,9 @@ Generate the project files with testing enabled and build the project:
     cmake -B "./build" -D BUILD_TESTS=ON
     cmake --build "./build"
 
-Move into the build directory and run the tests:
+Run the tests:
 
-    cd ./build
-    ctest -V -C Debug
+    ctest --test-dir "./build" -V -C Debug
 
 ## Example projects
 

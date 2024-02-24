@@ -14,6 +14,11 @@ add_library(
     "src/Window.cpp"
     "src/renderer/opengl/Window.cpp"
     "src/renderer/stub/Window.cpp"
+    "src/BuildInfo.cpp"
+    "src/Time.cpp"
+    "src/logging/LogSeverity.cpp"
+    "src/logging/LogMessage.cpp"
+    "src/logging/Logger.cpp"
 )
 
 set_target_properties(
