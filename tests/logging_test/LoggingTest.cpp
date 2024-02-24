@@ -23,10 +23,12 @@ TEST_F(
 ) {
   m_logger.info() << "Peekaboo!";
 
+  const auto message = m_stream.str();
+
   ASSERT_TRUE(std::regex_search(
-    m_stream.str(),
+    message,
     std::regex(R"#(^\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Peekaboo!\n$)#")
-  ));
+  )) << "Message: " << message;
 }
 
 TEST_F(
@@ -46,10 +48,12 @@ TEST_F(
 ) {
   m_logger.info() << "Peekaboo" << "!";
 
+  const auto message = m_stream.str();
+
   ASSERT_TRUE(std::regex_search(
-    m_stream.str(),
+    message,
     std::regex(R"#(^\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Peekaboo!\n$)#")
-  ));
+  )) << "Message: " << message;
 }
 
 TEST_F(
@@ -58,10 +62,12 @@ TEST_F(
 ) {
   m_logger.info() << "P" << 33 << "k" << 4 << 8 << 0 << 0 << "!";
 
+  const auto message = m_stream.str();
+
   ASSERT_TRUE(std::regex_search(
-    m_stream.str(),
+    message,
     std::regex(R"#(^\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) P33k4800!\n$)#")
-  ));
+  )) << "Message: " << message;
 }
 
 TEST_F(
@@ -71,13 +77,15 @@ TEST_F(
   m_logger.info() << "Peekaboo!";
   m_logger.info() << "Oobakeep!";
 
+  const auto message = m_stream.str();
+
   ASSERT_TRUE(std::regex_search(
-    m_stream.str(),
+    message,
     std::regex(
       "^"
       R"#(\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Peekaboo!\n)#"
       R"#(\[\d\d:\d\d:\d\d Info   \] \(.*?:\d+\) Oobakeep!\n)#"
       "$"
     )
-  ));
+  )) << "Message: " << message;
 }
