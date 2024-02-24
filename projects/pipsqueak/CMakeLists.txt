@@ -19,6 +19,7 @@ add_library(
     "src/logging/LogSeverity.cpp"
     "src/logging/LogMessage.cpp"
     "src/logging/Logger.cpp"
+    "src/math/Mat4x4.cpp"
     "src/math/Vec2.cpp"
     "src/math/Vec3.cpp"
     "src/math/Vec4.cpp"
