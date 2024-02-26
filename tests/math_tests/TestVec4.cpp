@@ -1,3 +1,5 @@
+#include "Test.hpp"
+
 #include <gtest/gtest.h>
 #include <pipsqueak/math/Vec4.hpp>
 
@@ -5,16 +7,6 @@
 
 using namespace pipsqueak;
 using namespace pipsqueak::math;
-
-#define EXPECT_VEC4_EQ(LHS, RHS)                                               \
-  do {                                                                         \
-    const Vec4 lhs = (LHS);                                                    \
-    const Vec4 rhs = (RHS);                                                    \
-    EXPECT_FLOAT_EQ(lhs.x, rhs.x);                                             \
-    EXPECT_FLOAT_EQ(lhs.y, rhs.y);                                             \
-    EXPECT_FLOAT_EQ(lhs.z, rhs.z);                                             \
-    EXPECT_FLOAT_EQ(lhs.w, rhs.w);                                             \
-  } while (false)
 
 TEST(TestVec4, vec4_has_cardinality_four) {
   EXPECT_EQ(Vec4::cardinality, 4);

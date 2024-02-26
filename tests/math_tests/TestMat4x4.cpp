@@ -1,3 +1,5 @@
+#include "Test.hpp"
+
 #include <gtest/gtest.h>
 #include <pipsqueak/math/Mat4x4.hpp>
 
@@ -5,21 +7,6 @@
 
 using namespace pipsqueak;
 using namespace pipsqueak::math;
-
-#define EXPECT_MAT4X4_EQ(LHS, RHS)                                             \
-  do {                                                                         \
-    const Mat4x4 lhs = (LHS);                                                  \
-    const Mat4x4 rhs = (RHS);                                                  \
-    for (Index col = 0; col < 4; ++col) {                                      \
-      for (Index row = 0; row < 4; ++row) {                                    \
-        EXPECT_FLOAT_EQ(lhs.at(row, col), rhs.at(row, col))                    \
-          << "row = " << row << "\n"                                           \
-          << "col = " << col << "\n"                                           \
-          << "lhs = " << lhs << "\n"                                           \
-          << "rhs = " << rhs;                                                  \
-      }                                                                        \
-    }                                                                          \
-  } while (false)
 
 TEST(TestMat4x4, mat4x4_has_row_count_four) {
   EXPECT_EQ(Mat4x4::row_count, 4);

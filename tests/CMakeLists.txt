@@ -30,6 +30,7 @@ pipsqueak_add_test(
   SOURCES
     "math_tests/TestFunctions.cpp"
     "math_tests/TestMat4x4.cpp"
+    "math_tests/TestTransform.cpp"
     "math_tests/TestVec2.cpp"
     "math_tests/TestVec3.cpp"
     "math_tests/TestVec4.cpp"

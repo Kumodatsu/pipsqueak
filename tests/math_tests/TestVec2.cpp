@@ -1,3 +1,5 @@
+#include "Test.hpp"
+
 #include <gtest/gtest.h>
 #include <pipsqueak/math/Vec2.hpp>
 
@@ -5,14 +7,6 @@
 
 using namespace pipsqueak;
 using namespace pipsqueak::math;
-
-#define EXPECT_VEC2_EQ(LHS, RHS)                                               \
-  do {                                                                         \
-    const Vec2 lhs = (LHS);                                                    \
-    const Vec2 rhs = (RHS);                                                    \
-    EXPECT_FLOAT_EQ(lhs.x, rhs.x);                                             \
-    EXPECT_FLOAT_EQ(lhs.y, rhs.y);                                             \
-  } while (false)
 
 TEST(TestVec2, vec2_has_cardinality_two) {
   EXPECT_EQ(Vec2::cardinality, 2);

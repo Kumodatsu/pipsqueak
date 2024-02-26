@@ -31,6 +31,20 @@ namespace pipsqueak::math {
       }}
     {}
 
+    constexpr Mat4x4(
+      const Vec4& column0,
+      const Vec4& column1,
+      const Vec4& column2,
+      const Vec4& column3
+    )
+      : columns {{
+        column0,
+        column1,
+        column2,
+        column3,
+      }}
+    {}
+
     [[nodiscard]]
     static inline constexpr Mat4x4 zero() {
       return {
