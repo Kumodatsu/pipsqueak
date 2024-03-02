@@ -91,6 +91,11 @@ namespace pipsqueak::math {
         m_matrix * Vec4{vector.x, vector.y, vector.z, 1.0f};
       return {transformed.x, transformed.y, transformed.z};
     }
+
+    [[nodiscard]]
+    inline friend Transform operator >> (const Transform& lhs, const Transform& rhs) {
+        return Transform(rhs.matrix() * lhs.matrix());
+    } 
   private:
     Mat4x4 m_matrix;
   };

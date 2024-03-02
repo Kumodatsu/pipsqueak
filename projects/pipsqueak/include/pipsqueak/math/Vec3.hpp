@@ -13,7 +13,7 @@ namespace pipsqueak::math {
     F32 x, y, z;
 
     Vec3() = default;
-    constexpr Vec3(F32 x, F32 y, F32 z) : x(x), y(y), z(z) {}
+    constexpr Vec3(F32 x, F32 y, F32 z) : x(x), y(y), z(z), m_padding() {}
 
     [[nodiscard]]
     static inline constexpr Vec3 zero() {
